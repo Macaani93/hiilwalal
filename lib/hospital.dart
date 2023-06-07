@@ -1,14 +1,11 @@
-// ignore_for_file: unused_field, unused_import
+// ignore_for_file: unused_field, unused_import, must_be_immutable
 
 import 'dart:html';
 import 'package:flutter/material.dart';
 
-class HospitalForm extends StatefulWidget {
-  @override
-  _HospitalFormState createState() => _HospitalFormState();
-}
+class HospitalForm extends StatelessWidget {
+  HospitalForm({super.key});
 
-class _HospitalFormState extends State<HospitalForm> {
   String _name = "";
   String _phone = "";
   String _address = "";
@@ -47,11 +44,11 @@ class _HospitalFormState extends State<HospitalForm> {
                 labelText: "Name",
                 border: OutlineInputBorder(),
               ),
-              onChanged: (value) {
-                setState(() {
-                  _name = value;
-                });
-              },
+              // onChanged: (value) {
+              //   setState(() {
+              //     _name = value;
+              //   });
+              // },
             ),
             SizedBox(height: 16.0),
             TextFormField(
@@ -59,11 +56,11 @@ class _HospitalFormState extends State<HospitalForm> {
                 labelText: "Phone",
                 border: OutlineInputBorder(),
               ),
-              onChanged: (value) {
-                setState(() {
-                  _phone = value;
-                });
-              },
+              // onChanged: (value) {
+              //   setState(() {
+              //     _phone = value;
+              //   });
+              // },
             ),
             SizedBox(height: 16.0),
             TextFormField(
@@ -71,11 +68,11 @@ class _HospitalFormState extends State<HospitalForm> {
                 labelText: "Address",
                 border: OutlineInputBorder(),
               ),
-              onChanged: (value) {
-                setState(() {
-                  _address = value;
-                });
-              },
+              // onChanged: (value) {
+              //   setState(() {
+              //     _address = value;
+              //   });
+              // },
             ),
             SizedBox(height: 16.0),
             TextFormField(
@@ -83,11 +80,11 @@ class _HospitalFormState extends State<HospitalForm> {
                 labelText: "RegDate",
                 border: OutlineInputBorder(),
               ),
-              onChanged: (value) {
-                setState(() {
-                  _regDate = value;
-                });
-              },
+              // onChanged: (value) {
+              //   setState(() {
+              //     _regDate = value;
+              //   });
+              // },
             ),
             SizedBox(height: 16.0),
             TextFormField(
@@ -95,11 +92,11 @@ class _HospitalFormState extends State<HospitalForm> {
                 labelText: "Action Date",
                 border: OutlineInputBorder(),
               ),
-              onChanged: (value) {
-                setState(() {
-                  _actionDate = value;
-                });
-              },
+              // onChanged: (value) {
+              //   setState(() {
+              //     _actionDate = value;
+              //   });
+              // },
             ),
             SizedBox(height: 16.0),
             ElevatedButton(

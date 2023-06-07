@@ -3,14 +3,16 @@
 import 'package:flutter/material.dart';
 import 'package:hiilwalal_application/hospital.dart';
 
+import 'chariyah.dart';
 import 'donors.dart';
+import 'sadaqah.dart';
 
-class blood extends StatelessWidget {
+class charity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'HIILWALAL',
+      title: 'HIILWALAAL',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -30,11 +32,11 @@ class blood extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HospitalForm()),
+                    MaterialPageRoute(builder: (context) => SadaqahForm()),
                   );
                 },
                 child: Text(
-                  'HOSPITAL',
+                  'SADAQAH',
                   style: TextStyle(fontSize: 30.0),
                 ),
                 style: ButtonStyle(
@@ -46,27 +48,11 @@ class blood extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HospitalForm()),
+                    MaterialPageRoute(builder: (context) => ChariyahForm()),
                   );
                 },
                 child: Text(
-                  'BLOOD DONOR',
-                  style: TextStyle(fontSize: 30),
-                ),
-                style: ButtonStyle(
-                  minimumSize: MaterialStateProperty.all(Size(250, 80)),
-                ),
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => DonorForm()),
-                  // );
-                },
-                child: Text(
-                  'BLOOD SEEKER',
+                  'CHARIYAH',
                   style: TextStyle(fontSize: 30),
                 ),
                 style: ButtonStyle(
