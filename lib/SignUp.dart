@@ -1,8 +1,9 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-
+import 'package:http/http.dart' as http;
 import '../Content/TextfieldWidget.dart';
 import '../Content/buttonWidget.dart';
 import '../Content/imagewidget.dart';
@@ -13,6 +14,7 @@ class SignUpPage extends StatelessWidget {
   final username = TextEditingController();
   final password = TextEditingController();
   final password2 = TextEditingController();
+  final FullName = TextEditingController();
   void clean() {
     username.text = "";
     password.text = "";
@@ -20,6 +22,44 @@ class SignUpPage extends StatelessWidget {
   }
 
   bool isLoading = false;
+
+  Future<void> startSignUp() async {
+    String apiUrl = "http://127.0.0.1/flutterApi/SignUp.php";
+
+    try {
+      var response = await http.post(Uri.parse(apiUrl), body: {
+        'username': username.text,
+        'fullname': FullName.text,
+        'password': password.text,
+      });
+
+      if (response.statusCode == 200) {
+        var jsonData = json.decode(response.body);
+        print(jsonData);
+
+        if (jsonData["message"] == "Login successful") {
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(
+          //       builder: (context) => Dashboard()),
+          // );
+          print('Inserted');
+          clean();
+        }
+      }
+      //   if (jsonData["error"]) {
+      //     // Handle error case
+      //     log("Login error");
+      //   } else {}
+      // } else {
+      //   print('Error');
+      //   log("HTTP request failed with status code: ${response.statusCode}");
+      // }
+    } catch (error) {
+      log("Error: $error");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,8 +93,16 @@ class SignUpPage extends StatelessWidget {
                     ),
                     MyTextField(
                         obscureText: false,
+                        Control: FullName,
+                        HintText: "Full Name",
+                        PrefixIcon: Icon(Icons.alternate_email_outlined)),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    MyTextField(
+                        obscureText: false,
                         Control: username,
-                        HintText: "Email",
+                        HintText: "Username",
                         PrefixIcon: Icon(Icons.alternate_email_outlined)),
                     SizedBox(
                       height: 10,
@@ -85,9 +133,8 @@ class SignUpPage extends StatelessWidget {
                         try {
                           if (password.text == password2.text) {
                             isLoading = true;
-                            setSate() {}
 
-                            Navigator.pop(context);
+                            startSignUp();
                           } else {
                             Widget okButton = TextButton(
                               child: Text("OK"),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hiilwalal_application/blood.dart';
+import 'package:hiilwalal/blood.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
-import 'package:hiilwalal_application/charity.dart';
+import 'package:hiilwalal/charity.dart';
 
 class Dashboard extends StatefulWidget {
   @override

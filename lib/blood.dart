@@ -1,7 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
-import 'package:hiilwalal_application/hospital.dart';
+import 'package:hiilwalal/hospital.dart';
 
 import 'donors.dart';
 
@@ -44,10 +44,10 @@ class blood extends StatelessWidget {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => HospitalForm()),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => DonorForm()),
+                  // );
                 },
                 child: Text(
                   'BLOOD DONOR',

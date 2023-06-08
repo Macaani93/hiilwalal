@@ -13,6 +13,7 @@
 //   String _birthDate = "";
 //   String _regDate = "";
 //   String _bloodType = "";
+
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
@@ -110,40 +111,14 @@
 //                   value: "A+",
 //                   child: Text("A+"),
 //                 ),
-//                 DropdownMenuItem(
-//                   value: "A-",
-//                   child: Text("A-"),
-//                 ),
-//                 DropdownMenuItem(
-//                   value: "B+",
-//                   child: Text("B+"),
-//                 ),
-//                 DropdownMenuItem(
-//                   value: "B-",
-//                   child: Text("B-"),
-//                 ),
-//                 DropdownMenuItem(
-//                   value: "AB+",
-//                   child: Text("AB+"),
-//                 ),
-//                 DropdownMenuItem(
-//                   value: "AB-",
-//                   child: Text("AB-"),
-//                 ),
-//                 DropdownMenuItem(
-//                   value: "O+",
-//                   child: Text("O+"),
-//                 ),
-//                 DropdownMenuItem(
-//                   value: "O-",
-//                   child: Text("O-"),
-//                 ),
+//                 // Add other DropdownMenuItem items for different blood types
 //               ],
-//               // onChanged: (value) {
-//               //   setState(() {
-//               //     _bloodType = value!;
-//               //   });
-//               // },
+//               value: _bloodType, // Set the current selected value
+//               onChanged: (value) {
+//                 setState(() {
+//                   _bloodType = value!;
+//                 });
+//               },
 //             ),
 //             SizedBox(height: 16.0),
 //             ElevatedButton(

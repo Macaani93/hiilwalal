@@ -1,8 +1,9 @@
 // ignore_for_file: unused_import
 
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:hiilwalal_application/Splash.dart';
-import 'package:hiilwalal_application/blood.dart';
+import 'package:hiilwalal/Splash.dart';
+import 'package:hiilwalal/blood.dart';
 
 import 'All_lists.dart';
 import 'charity.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(),
+      home: Dashboard(),
     );
   }
 }

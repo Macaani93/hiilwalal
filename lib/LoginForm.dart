@@ -1,44 +1,89 @@
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:hiilwalal_application/Content/TextfieldWidget.dart';
-import 'package:hiilwalal_application/Content/buttonWidget.dart';
-import 'package:hiilwalal_application/Content/imagewidget.dart';
-import 'package:hiilwalal_application/Content/mytext.dart';
-import 'package:hiilwalal_application/SignUp.dart';
-import 'package:hiilwalal_application/dashbord.dart';
-import 'package:http/http.dart' as http;
+import 'package:hiilwalal/Content/imagewidget.dart';
+import 'package:hiilwalal/Content/TextfieldWidget.dart';
+import 'package:hiilwalal/Content/buttonWidget.dart';
+import 'package:hiilwalal/Content/imagewidget.dart';
+import 'package:hiilwalal/Content/mytext.dart';
+import 'package:hiilwalal/SignUp.dart';
+import 'package:hiilwalal/dashbord.dart';
 
-class LoginForm extends StatelessWidget {
-  LoginForm({super.key});
+class LoginForm extends StatefulWidget {
+  const LoginForm({Key? key}) : super(key: key);
+
+  @override
+  _LoginFormState createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
   final username = TextEditingController();
   final password = TextEditingController();
   bool isLoading = false;
+
   void clean() {
     username.text = "";
     password.text = "";
   }
 
-  startLogin() async {
-    String apiUrl = "http://127.0.0.1/config.php";
+  Future<void> startLogin() async {
+    String apiUrl = "http://127.0.0.1/flutterApi/Login.php";
 
-    var response = await http.post(Uri.parse(apiUrl), body: {
-      'username': username.text,
-      'password': password.text,
-    });
+    try {
+      setState(() {
+        isLoading = true;
+      });
 
-    if (response.statusCode == 200) {
-      var jsondata = json.decode(response.body);
-      if (jsondata["error"]) {
-        // Handle error case
-      } else {
-        if (jsondata["success"] == true) {
-          print("success");
-          // Save the data returned from the server and navigate to the home page
+      var response = await http.post(Uri.parse(apiUrl), body: {
+        'username': username.text,
+        'password': password.text,
+      });
+
+      if (response.statusCode == 200) {
+        var jsonData = json.decode(response.body);
+        print(jsonData);
+
+        if (jsonData["message"] == "Login successful") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Dashboard()),
+          );
+          clean();
         } else {
-          // Handle unsuccessful login case
+          Widget okButton = TextButton(
+            child: Text("OK"),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          );
+          AlertDialog alert = AlertDialog(
+            title: Text("UserName or password is Incorrect"),
+            actions: [okButton],
+          );
+          showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return alert;
+              });
         }
       }
+      //   if (jsonData["error"]) {
+      //     // Handle error case
+      //     log("Login error");
+      //   } else {}
+      // } else {
+      //   print('Error');
+      //   log("HTTP request failed with status code: ${response.statusCode}");
+      // }
+    } catch (error) {
+      log("Error: $error");
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
     }
   }
 
@@ -53,72 +98,57 @@ class LoginForm extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top: 20, left: 25, right: 25),
             child: Container(
-                width: double.infinity,
-                height: 450,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 20,
-                    ),
-                    MyTextField(
-                        obscureText: false,
-                        Control: username,
-                        HintText: "Email",
-                        PrefixIcon: Icon(Icons.alternate_email_outlined)),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    MyTextField(
-                        obscureText: true,
-                        Control: password,
-                        HintText: "Password",
-                        PrefixIcon: Icon(Icons.lock_outline_rounded)),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    GestureDetector(
-                      child: isLoading
-                          ? CircularProgressIndicator(
-                              backgroundColor: Colors.white,
-                            )
-                          : MyButton(btnText: "Login"),
-                      onTap: () async {
-                        try {
-                          isLoading = true;
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => Dashboard()));
-                          startLogin();
-                          //setSate() {}
-                        } catch (Err) {
-                          log("Error");
-                        }
-                        isLoading = false;
-                      },
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        GestureDetector(
-                          // ignore: sort_child_properties_last
-                          child:
-                              const MyText(MylableText: "SignUp", FontSize: 15),
-                          onTap: (() {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SignUpPage()));
-                          }),
-                        )
-                      ],
-                    )
-                  ],
-                )),
+              width: double.infinity,
+              height: 450,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 20),
+                  MyTextField(
+                    obscureText: false,
+                    Control: username,
+                    HintText: "UserName",
+                    PrefixIcon: Icon(Icons.person),
+                  ),
+                  SizedBox(height: 20),
+                  MyTextField(
+                    obscureText: true,
+                    Control: password,
+                    HintText: "Password",
+                    PrefixIcon: Icon(Icons.lock_outline_rounded),
+                  ),
+                  SizedBox(height: 20),
+                  GestureDetector(
+                    child: isLoading
+                        ? CircularProgressIndicator(
+                            backgroundColor: Colors.white,
+                          )
+                        : MyButton(btnText: "Login"),
+                    onTap: () async {
+                      await startLogin();
+                    },
+                  ),
+                  const SizedBox(height: 15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        child:
+                            const MyText(MylableText: "SignUp", FontSize: 15),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SignUpPage(),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
