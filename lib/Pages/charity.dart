@@ -1,7 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
-import 'package:hiilwalal/hospital.dart';
+import 'package:hiilwalal/Pages/hospital.dart';
 
 import 'chariyah.dart';
 import 'donors.dart';
@@ -40,11 +40,18 @@ class charity extends StatelessWidget {
                   style: TextStyle(fontSize: 30.0),
                 ),
                 style: ButtonStyle(
-                  minimumSize: MaterialStateProperty.all(Size(250, 80)),
+                  minimumSize: MaterialStateProperty.all(Size(400, 80)),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40),
+                    ),
+                  ),
                 ),
               ),
               SizedBox(height: 20),
               ElevatedButton(
+                
+                
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -52,11 +59,20 @@ class charity extends StatelessWidget {
                   );
                 },
                 child: Text(
+                 
                   'CHARIYAH',
                   style: TextStyle(fontSize: 30),
+                  
                 ),
+                
                 style: ButtonStyle(
-                  minimumSize: MaterialStateProperty.all(Size(250, 80)),
+                  minimumSize: MaterialStateProperty.all(Size(400, 80)),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40),
+                    ),
+                  ),
+                  
                 ),
               ),
             ],

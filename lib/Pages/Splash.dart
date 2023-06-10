@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
       appBar: AppBar(
         title: Text("HiilWalaal App"),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: const Color.fromARGB(255, 82, 54, 244),
       ),
       body: Center(
         child: Padding(

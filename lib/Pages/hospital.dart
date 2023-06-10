@@ -1,24 +1,17 @@
-// ignore_for_file: unused_import
+// ignore_for_file: unused_field, unused_import, must_be_immutable
 
 import 'dart:html';
 import 'package:flutter/material.dart';
 
-class ChariyahForm extends StatefulWidget {
-  @override
-  _ChariyahFormState createState() => _ChariyahFormState();
-}
+class HospitalForm extends StatelessWidget {
+  HospitalForm({super.key});
 
-class _ChariyahFormState extends State<ChariyahForm> {
-  // ignore: unused_field
   String _name = "";
-  // ignore: unused_field
   String _phone = "";
-  // ignore: unused_field
   String _address = "";
-  // ignore: unused_field
-  String _amount = "";
-  // ignore: unused_field
-  String _description = "";
+  // ignore: prefer_final_fields
+  String _regDate = "";
+  String _actionDate = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,14 +27,26 @@ class _ChariyahFormState extends State<ChariyahForm> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Icon(Icons.local_hospital),
             SizedBox(height: 10.0),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text(
-                'CHARIYAH',
-                style: TextStyle(fontSize: 30.0),
-              ),
+            Text(
+              'Hospital',
+              style: TextStyle(fontSize: 30.0),
+              textAlign: TextAlign.center,
             ),
+            // ElevatedButton(
+            //   style: ElevatedButton.styleFrom(
+            //     padding: EdgeInsets.symmetric(horizontal: 1.0),
+            //     shape: RoundedRectangleBorder(
+            //       borderRadius: BorderRadius.circular(40),
+            //     ),
+            //   ),
+            //   onPressed: () {},
+            //   child: Text(
+            //     'HOSPITAL',
+            //     style: TextStyle(fontSize: 50.0),
+            //   ),
+            //),
             SizedBox(
               height: 30.0,
               width: 10.0,
@@ -51,11 +56,11 @@ class _ChariyahFormState extends State<ChariyahForm> {
                 labelText: "Name",
                 border: OutlineInputBorder(),
               ),
-              onChanged: (value) {
-                setState(() {
-                  _name = value;
-                });
-              },
+              // onChanged: (value) {
+              //   setState(() {
+              //     _name = value;
+              //   });
+              // },
             ),
             SizedBox(height: 16.0),
             TextFormField(
@@ -63,11 +68,11 @@ class _ChariyahFormState extends State<ChariyahForm> {
                 labelText: "Phone",
                 border: OutlineInputBorder(),
               ),
-              onChanged: (value) {
-                setState(() {
-                  _phone = value;
-                });
-              },
+              // onChanged: (value) {
+              //   setState(() {
+              //     _phone = value;
+              //   });
+              // },
             ),
             SizedBox(height: 16.0),
             TextFormField(
@@ -75,35 +80,35 @@ class _ChariyahFormState extends State<ChariyahForm> {
                 labelText: "Address",
                 border: OutlineInputBorder(),
               ),
-              onChanged: (value) {
-                setState(() {
-                  _address = value;
-                });
-              },
+              // onChanged: (value) {
+              //   setState(() {
+              //     _address = value;
+              //   });
+              // },
             ),
             SizedBox(height: 16.0),
             TextFormField(
               decoration: InputDecoration(
-                labelText: "Amount",
+                labelText: "RegDate",
                 border: OutlineInputBorder(),
               ),
-              onChanged: (value) {
-                setState(() {
-                  _amount = value;
-                });
-              },
+              // onChanged: (value) {
+              //   setState(() {
+              //     _regDate = value;
+              //   });
+              // },
             ),
             SizedBox(height: 16.0),
             TextFormField(
               decoration: InputDecoration(
-                labelText: "Description",
+                labelText: "Action Date",
                 border: OutlineInputBorder(),
               ),
-              onChanged: (value) {
-                setState(() {
-                  _description = value;
-                });
-              },
+              // onChanged: (value) {
+              //   setState(() {
+              //     _actionDate = value;
+              //   });
+              // },
             ),
             SizedBox(height: 16.0),
             ElevatedButton(
@@ -115,7 +120,7 @@ class _ChariyahFormState extends State<ChariyahForm> {
                   builder: (BuildContext context) {
                     return AlertDialog(
                       title: Text("Thank You!"),
-                      content: Text("You donated."),
+                      content: Text("You Registered."),
                       actions: [
                         TextButton(
                           onPressed: () {
@@ -129,7 +134,7 @@ class _ChariyahFormState extends State<ChariyahForm> {
                 );
               },
               child: Text(
-                "DONATE NOW",
+                "REGISTER NOW",
                 style: TextStyle(
                   fontSize: 30,
                   color: Color.fromARGB(255, 242, 244, 242),
@@ -138,6 +143,12 @@ class _ChariyahFormState extends State<ChariyahForm> {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(
                     Color.fromARGB(255, 50, 188, 3)),
+                minimumSize: MaterialStateProperty.all(Size(10, 50)),
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40),
+                  ),
+                ),
               ),
             ),
           ],

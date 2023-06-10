@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:http/http.dart' as http;
-import '../Content/TextfieldWidget.dart';
-import '../Content/buttonWidget.dart';
-import '../Content/imagewidget.dart';
-import '../Content/mytext.dart';
+import '../../Content/TextfieldWidget.dart';
+import '../../Content/buttonWidget.dart';
+import '../../Content/imagewidget.dart';
+import '../../Content/mytext.dart';
 
 class SignUpPage extends StatelessWidget {
   SignUpPage({super.key});
@@ -66,7 +66,7 @@ class SignUpPage extends StatelessWidget {
       appBar: AppBar(
           centerTitle: true,
           title: const Text("Create User"),
-          backgroundColor: Colors.red,
+          backgroundColor: Color.fromARGB(255, 92, 54, 244),
           leading: GestureDetector(
             child: Icon(
               Icons.arrow_back_ios,

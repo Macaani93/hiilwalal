@@ -1,17 +1,19 @@
-// ignore_for_file: unused_field, unused_import, must_be_immutable
+// ignore_for_file: unused_field, unused_import
 
 import 'dart:html';
 import 'package:flutter/material.dart';
 
-class HospitalForm extends StatelessWidget {
-  HospitalForm({super.key});
+class SadaqahForm extends StatefulWidget {
+  @override
+  _SadaqahFormState createState() => _SadaqahFormState();
+}
 
+class _SadaqahFormState extends State<SadaqahForm> {
   String _name = "";
   String _phone = "";
   String _address = "";
-  // ignore: prefer_final_fields
-  String _regDate = "";
-  String _actionDate = "";
+  String _amount = "";
+  String _description = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,13 +29,12 @@ class HospitalForm extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Icon(Icons.attach_money),
             SizedBox(height: 10.0),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text(
-                'HOSPITAL',
-                style: TextStyle(fontSize: 30.0),
-              ),
+            Text(
+              'SADAQAH',
+              style: TextStyle(fontSize: 30.0),
+              textAlign: TextAlign.center,
             ),
             SizedBox(
               height: 30.0,
@@ -44,11 +45,11 @@ class HospitalForm extends StatelessWidget {
                 labelText: "Name",
                 border: OutlineInputBorder(),
               ),
-              // onChanged: (value) {
-              //   setState(() {
-              //     _name = value;
-              //   });
-              // },
+              onChanged: (value) {
+                setState(() {
+                  _name = value;
+                });
+              },
             ),
             SizedBox(height: 16.0),
             TextFormField(
@@ -56,11 +57,11 @@ class HospitalForm extends StatelessWidget {
                 labelText: "Phone",
                 border: OutlineInputBorder(),
               ),
-              // onChanged: (value) {
-              //   setState(() {
-              //     _phone = value;
-              //   });
-              // },
+              onChanged: (value) {
+                setState(() {
+                  _phone = value;
+                });
+              },
             ),
             SizedBox(height: 16.0),
             TextFormField(
@@ -68,35 +69,35 @@ class HospitalForm extends StatelessWidget {
                 labelText: "Address",
                 border: OutlineInputBorder(),
               ),
-              // onChanged: (value) {
-              //   setState(() {
-              //     _address = value;
-              //   });
-              // },
+              onChanged: (value) {
+                setState(() {
+                  _address = value;
+                });
+              },
             ),
             SizedBox(height: 16.0),
             TextFormField(
               decoration: InputDecoration(
-                labelText: "RegDate",
+                labelText: "Amount",
                 border: OutlineInputBorder(),
               ),
-              // onChanged: (value) {
-              //   setState(() {
-              //     _regDate = value;
-              //   });
-              // },
+              onChanged: (value) {
+                setState(() {
+                  _amount = value;
+                });
+              },
             ),
             SizedBox(height: 16.0),
             TextFormField(
               decoration: InputDecoration(
-                labelText: "Action Date",
+                labelText: "Description",
                 border: OutlineInputBorder(),
               ),
-              // onChanged: (value) {
-              //   setState(() {
-              //     _actionDate = value;
-              //   });
-              // },
+              onChanged: (value) {
+                setState(() {
+                  _description = value;
+                });
+              },
             ),
             SizedBox(height: 16.0),
             ElevatedButton(
@@ -108,7 +109,7 @@ class HospitalForm extends StatelessWidget {
                   builder: (BuildContext context) {
                     return AlertDialog(
                       title: Text("Thank You!"),
-                      content: Text("You Registered."),
+                      content: Text("You donated."),
                       actions: [
                         TextButton(
                           onPressed: () {
@@ -122,7 +123,7 @@ class HospitalForm extends StatelessWidget {
                 );
               },
               child: Text(
-                "REGISTER NOW",
+                "DONATE NOW",
                 style: TextStyle(
                   fontSize: 30,
                   color: Color.fromARGB(255, 242, 244, 242),

@@ -9,8 +9,8 @@ import 'package:hiilwalal/Content/TextfieldWidget.dart';
 import 'package:hiilwalal/Content/buttonWidget.dart';
 import 'package:hiilwalal/Content/imagewidget.dart';
 import 'package:hiilwalal/Content/mytext.dart';
-import 'package:hiilwalal/SignUp.dart';
-import 'package:hiilwalal/dashbord.dart';
+import 'package:hiilwalal/Pages/SignUp.dart';
+import 'package:hiilwalal/Pages/dashbord.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);

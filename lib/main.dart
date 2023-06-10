@@ -2,12 +2,12 @@
 
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:hiilwalal/Splash.dart';
-import 'package:hiilwalal/blood.dart';
+import 'package:hiilwalal/Pages/Splash.dart';
+import 'package:hiilwalal/Pages/blood.dart';
 
-import 'All_lists.dart';
-import 'charity.dart';
-import 'dashbord.dart';
+import 'Pages/All_lists.dart';
+import 'Pages/charity.dart';
+import 'Pages/dashbord.dart';
 
 void main() {
   runApp(MyApp());

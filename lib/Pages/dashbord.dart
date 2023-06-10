@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hiilwalal/blood.dart';
+import 'package:hiilwalal/Pages/Splash.dart';
+import 'package:hiilwalal/Pages/blood.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
-import 'package:hiilwalal/charity.dart';
+import 'package:hiilwalal/Pages/charity.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -26,9 +27,9 @@ class _Dashboard extends State<Dashboard> {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('HIILWALAL'),
-        ),
+        // appBar: AppBar(
+        //   title: Text('HIILWALAL'),
+        // ),
         body: _currentPage,
         bottomNavigationBar: Visibility(
           visible: !(_currentPage is DashboardPage),

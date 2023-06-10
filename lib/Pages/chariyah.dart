@@ -1,18 +1,23 @@
-// ignore_for_file: unused_field, unused_import
+// ignore_for_file: unused_import
 
 import 'dart:html';
 import 'package:flutter/material.dart';
 
-class SadaqahForm extends StatefulWidget {
+class ChariyahForm extends StatefulWidget {
   @override
-  _SadaqahFormState createState() => _SadaqahFormState();
+  _ChariyahFormState createState() => _ChariyahFormState();
 }
 
-class _SadaqahFormState extends State<SadaqahForm> {
+class _ChariyahFormState extends State<ChariyahForm> {
+  // ignore: unused_field
   String _name = "";
+  // ignore: unused_field
   String _phone = "";
+  // ignore: unused_field
   String _address = "";
+  // ignore: unused_field
   String _amount = "";
+  // ignore: unused_field
   String _description = "";
   @override
   Widget build(BuildContext context) {
@@ -29,14 +34,24 @@ class _SadaqahFormState extends State<SadaqahForm> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SizedBox(height: 10.0),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text(
-                'SADAQAH',
-                style: TextStyle(fontSize: 30.0),
-              ),
+            Icon(
+              Icons.attach_money_rounded,
+              color: Colors.green,
+              size: 80.80,
             ),
+            SizedBox(height: 10.0),
+            Text(
+              'Chariyah',
+              style: TextStyle(fontSize: 30.0),
+              textAlign: TextAlign.center,
+            ),
+            // ElevatedButton(
+            //   onPressed: () {},
+            //   child: Text(
+            //     'CHARIYAH',
+            //     style: TextStyle(fontSize: 30.0),
+            //   ),
+            // ),
             SizedBox(
               height: 30.0,
               width: 10.0,
